@@ -1,20 +1,16 @@
 require "formula"
 
-class RosHydroRospack < Formula
-  homepage "http://wiki.ros.org/rospack"
-  url "https://github.com/ros-gbp/rospack-release/archive/release/hydro/rospack/2.1.23-0.tar.gz"
-  version "2.1.23-0"
-  sha1 "1b7d829febb2f90874f3edaaf602d4feb6b74be4"
+class RosHydroRoslib < Formula
+  homepage "http://www.ros.org/wiki/roslib"
+  url "https://github.com/ros-gbp/ros-release/archive/release/hydro/roslib/1.10.9-0.tar.gz"
+  version "1.10.9-0"
+  sha1 "a9fe3bd5f62d2b95d483aa2c77ce0d2c3544d477"
 
-  depends_on "ros-hydro-catkin" => :build
+  depends_on "boost" => :build
 
-  depends_on :python
-  depends_on "rosdep" => [:python, "rosdep2"]
-  depends_on "catkin-pkg" => [:python, "catkin_pkg"]
-  depends_on "boost"
-  depends_on "tinyxml"
-  depends_on "gtest"
-  depends_on "pkg-config"
+  depends_on "rospkg" => [:python, "rospkg"]
+  depends_on "ros-hydro-catkin"  
+  depends_on "ros-hydro-rospack"
 
   def install
     args = std_cmake_args
