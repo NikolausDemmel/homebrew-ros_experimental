@@ -42,7 +42,6 @@ class RosHydroTopicTools < Formula
     end
     args << '-DCATKIN_BUILD_BINARY_PACKAGE=1'
 
-    system "cmake", ".", *args
-    system "make", "install"
+    system 'if [ -f "/usr/local/setup.sh" ]; then . "/usr/local/setup.sh"; fi && cmake . ' + args.join(" ") + " && make install"
   end
 end
