@@ -1,7 +1,7 @@
 # homebrew-ros_experimental
 
 homebrew-ros_experimental is a testing ground for exploring the idea of
-automatically serve ROS via homebrew by generating formulae with bloom.
+automatically serving ROS via homebrew by generating formulae with bloom.
 
 ## Usage
 
