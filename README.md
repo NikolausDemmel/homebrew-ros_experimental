@@ -11,11 +11,15 @@ automatically serve ROS via homebrew by generating formulae with bloom.
 
 ### 2. Install
 
-    $ brew install ros-hydro-roslib
+This currently only works if homebrew is installed in /usr/local
 
-### 3. Uninstall
-
-    $ brew remove ros-hydro-roslib
+    $ brew install ros-hydro-catkin
+    # manually create symlinks to the setup scripts in /usr/local/
+    $ sh /usr/local/Library/Taps/nikolausdemmel-ros_experimental/create-links-catkin.sh
+    $ brew install ros-hydro-ros-base
+    # wait... dependecy resolution of homebrew does not scale at all
+    $ source /usr/local/setup.bash
+    $ # enjoy
 
 ## License
 
