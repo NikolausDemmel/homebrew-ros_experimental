@@ -7,19 +7,19 @@ automatically serve ROS via homebrew by generating formulae with bloom.
 
 ### 1. Download formulae
 
-    $ brew tap NikolausDemmel/ros_experimental
+    brew tap NikolausDemmel/ros_experimental
 
 ### 2. Install
 
 This currently only works if homebrew is installed in /usr/local
 
-    $ brew install ros-hydro-catkin
+    brew install ros-hydro-catkin
     # manually create symlinks to the setup scripts in /usr/local/
-    $ sh /usr/local/Library/Taps/nikolausdemmel-ros_experimental/create-links-catkin.sh
-    $ brew install ros-hydro-ros-base
+    sh /usr/local/Library/Taps/nikolausdemmel-ros_experimental/create-links-catkin.sh
+    brew install ros-hydro-ros-base
     # wait... dependecy resolution of homebrew does not scale at all
-    $ source /usr/local/setup.bash
-    $ # enjoy
+    source /usr/local/setup.bash
+    # enjoy
 
 ## License
 
