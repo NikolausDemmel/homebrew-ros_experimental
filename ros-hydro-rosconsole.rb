@@ -1,28 +1,26 @@
 # This formula is generated, you should not edit it directly.
 require 'formula'
 
-class RosHydroCatkin < Formula
-  homepage 'http://www.ros.org/wiki/catkin'
-  url 'https://github.com/ros-gbp/catkin-release.git', :tag => 'release/hydro/catkin/0.5.86-0'
-  version '0.5.86-0'
+class RosHydroRosconsole < Formula
+  homepage 'http://www.ros.org/wiki/rosconsole'
+  url 'https://github.com/ros-gbp/ros_comm-release.git', :tag => 'release/hydro/rosconsole/1.10.2-0'
+  version '1.10.2-0'
 
   # source repos often contain more than one package... not sure if we can handle this
-  #head 'https://github.com/ros-gbp/catkin-release.git', :branch => 'hydro-devel'
+  #head 'https://github.com/ros-gbp/ros_comm-release.git', :branch => 'hydro-devel'
 
   # FIXEM: these are build depends
-  #depends_on "argparse" => :python
-  #depends_on "catkin-pkg" => :python
-  #depends_on "empy" => :python
-  #depends_on "nose" => :python
-  depends_on "cmake"
-  depends_on "gtest"
+  depends_on "boost"
+  depends_on "log4cxx"
+  depends_on "ros-hydro-catkin"
+  depends_on "ros-hydro-cpp-common"
+  depends_on "ros-hydro-rostime"
+  depends_on "ros-hydro-rosunit"
 
-  #depends_on "argparse" => :python
-  #depends_on "catkin-pkg" => :python
-  #depends_on "empy" => :python
-  #depends_on "nose" => :python
-  depends_on "cmake"
-  depends_on "gtest"
+  depends_on "log4cxx"
+  depends_on "ros-hydro-cpp-common"
+  depends_on "ros-hydro-rosbuild"
+  depends_on "ros-hydro-rostime"
 
   option 'with-debug-info', "Build with debug info."
 

@@ -1,29 +1,38 @@
-require "formula"
+# This formula is generated, you should not edit it directly.
+require 'formula'
 
 class RosHydroRoslib < Formula
-  homepage "http://www.ros.org/wiki/roslib"
-  url "https://github.com/ros-gbp/ros-release/archive/release/hydro/roslib/1.10.9-0.tar.gz"
-  version "1.10.9-0"
-  sha1 "a9fe3bd5f62d2b95d483aa2c77ce0d2c3544d477"
+  homepage 'http://ros.org/wiki/roslib'
+  url 'https://github.com/ros-gbp/ros-release.git', :tag => 'release/hydro/roslib/1.10.9-0'
+  version '1.10.9-0'
 
-  depends_on "boost" => :build
+  # source repos often contain more than one package... not sure if we can handle this
+  #head 'https://github.com/ros-gbp/ros-release.git', :branch => 'hydro-devel'
 
-  depends_on "rospkg" => [:python, "rospkg"]
-  depends_on "ros-hydro-catkin"  
+  # FIXEM: these are build depends
+  depends_on "boost"
+  depends_on "ros-hydro-catkin"
   depends_on "ros-hydro-rospack"
+
+  #depends_on "rospkg" => :python
+  depends_on "ros-hydro-catkin"
+  depends_on "ros-hydro-rospack"
+
+  option 'with-debug-info', "Build with debug info."
 
   def install
     args = std_cmake_args
     args.delete '-DCMAKE_BUILD_TYPE=None'
     args.delete_if {|s| s.match(/^-DCMAKE_INSTALL_PREFIX/) }
     args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
-    args << '-DCMAKE_BUILD_TYPE=Release'
+    if build.with? "debug-info"
+      args << '-DCMAKE_BUILD_TYPE=RelWithDebInfo'
+    else
+      args << '-DCMAKE_BUILD_TYPE=Release'
+    end
+    args << '-DCATKIN_BUILD_BINARY_PACKAGE=1'
 
     system "cmake", ".", *args
     system "make", "install"
-
-    # remove things only installed by the catkin package
-    (etc/"catkin/profile.d/05.catkin_make.bash").delete
-    (etc/"catkin/profile.d/05.catkin_make_isolated.bash").delete
   end
 end

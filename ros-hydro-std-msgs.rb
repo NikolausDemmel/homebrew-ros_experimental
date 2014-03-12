@@ -1,28 +1,19 @@
 # This formula is generated, you should not edit it directly.
 require 'formula'
 
-class RosHydroCatkin < Formula
-  homepage 'http://www.ros.org/wiki/catkin'
-  url 'https://github.com/ros-gbp/catkin-release.git', :tag => 'release/hydro/catkin/0.5.86-0'
-  version '0.5.86-0'
+class RosHydroStdMsgs < Formula
+  homepage 'http://www.ros.org/wiki/std_msgs'
+  url 'https://github.com/ros-gbp/std_msgs-release.git', :tag => 'release/hydro/std_msgs/0.5.8-0'
+  version '0.5.8-0'
 
   # source repos often contain more than one package... not sure if we can handle this
-  #head 'https://github.com/ros-gbp/catkin-release.git', :branch => 'hydro-devel'
+  #head 'https://github.com/ros-gbp/std_msgs-release.git', :branch => 'hydro-devel'
 
   # FIXEM: these are build depends
-  #depends_on "argparse" => :python
-  #depends_on "catkin-pkg" => :python
-  #depends_on "empy" => :python
-  #depends_on "nose" => :python
-  depends_on "cmake"
-  depends_on "gtest"
+  depends_on "ros-hydro-catkin"
+  depends_on "ros-hydro-message-generation"
 
-  #depends_on "argparse" => :python
-  #depends_on "catkin-pkg" => :python
-  #depends_on "empy" => :python
-  #depends_on "nose" => :python
-  depends_on "cmake"
-  depends_on "gtest"
+  depends_on "ros-hydro-message-runtime"
 
   option 'with-debug-info', "Build with debug info."
 
