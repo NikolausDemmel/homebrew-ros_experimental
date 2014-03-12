@@ -36,7 +36,7 @@ class RosHydroCatkin < Formula
     else
       args << '-DCMAKE_BUILD_TYPE=Release'
     end
-    args << '-DCATKIN_BUILD_BINARY_PACKAGE=1'
+#    args << '-DCATKIN_BUILD_BINARY_PACKAGE=1'
 
     system "cmake", ".", *args
     system "make", "install"
